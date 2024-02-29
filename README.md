@@ -28,6 +28,7 @@ To package apps for the local platform:
 npm run package
 ```
 
-## License
+## Licenses
 
-MIT © [Electron React Boilerplate](https://github.com/maxjschneider/barracuda)
+MIT © [Barracuda](https://github.com/maxjschneider/barracuda)
+MIT © [Electron React Boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
