@@ -14,6 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import store from "./store"
 
 class AppUpdater {
   constructor() {
@@ -27,7 +28,9 @@ let mainWindow: BrowserWindow | null = null;
 
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
+  console.log(
+    store.get("filePath") === undefined
+  );
   event.reply('ipc-example', msgTemplate('pong'));
 });
 
