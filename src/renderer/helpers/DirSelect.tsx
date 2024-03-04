@@ -6,11 +6,19 @@ interface Props {
 }
 
 const DirSelect = ({ prompt }: Props) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    window.electron.ipcRenderer.sendMessage('ipc-event', [e]);
+  };
+
   return (
-    <Form.Group controlId="formFile" className="mb-3">
-      <Form.Label> {prompt} </Form.Label>
-      <Form.Control type="file" />
-    </Form.Group>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formFile" className="mb-3">
+        <Form.Label> {prompt} </Form.Label>
+        <Form.Control type="file" />
+      </Form.Group>
+    </Form>
   );
 };
 
